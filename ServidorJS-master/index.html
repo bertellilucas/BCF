@@ -6,7 +6,7 @@
 	<link rel="stylesheet" type="text/css" href="css/style.css">
 	<meta charset="utf-8">
 </head>
-<body onload="mostraPatio()">
+<body>
 <div class="container">
 
 	<div class="header clearfix">
@@ -17,29 +17,73 @@
 		<form id="formulario">
 		<div id="aviso"></div>
 			<div class="form-group">
-				<label>Nome:</label>
-				<input type="text" class="form-control" name="" id="modeloServico" placeholder="Digite o modelo do veiculo...">
+				<label>Nome</label>
+				<input type="text" class="form-control" name="" id="serverNome" placeholder="Digite o nome">
 			</div>
 			<div class="form-group">
-				<label>Ip:</label>
-				<input type="number" class="form-control" name="" id="ipUsuario" placeholder="Digite a placa do veiculo...">
+				<label>Ip</label>
+				<input type="text" class="form-control" name="" id="serverIp" placeholder="Digite o IP...">
 			</div>
 			<div class="form-group">
-				<label>Porta:</label>
-				<input type="text" class="form-control" name="" id="portaUser" placeholder="Digite a placa do veiculo...">
+				<label>Porta</label>
+				<input type="number" class="form-control" name="" id="serverPorta" placeholder="Digite a porta...">
 			</div>
-			<div class="form-group">
-				<label>Usuario:</label>
-				<input type="text" class="form-control" name="" id="nomeUser" placeholder="Digite a placa do veiculo...">
+			Serviço
+			<div id="servs">
+				<div>
+					<div class="form-group">
+						<label>Nome</label>
+						<input type="text" class="form-control servNome" name="" placeholder="Digite o serviço...">
+					</div>
+					<div class="form-group">
+						<label>Ip</label>
+						<input type="type" class="form-control servIp" name="" placeholder="Digite o Ip...">
+					</div>
+					<div class="form-group">
+						<label>Porta</label>
+						<input type="number" class="form-control servPorta" name="" placeholder="Digite a porta...">
+					</div>
+					<div class="form-group">
+						<label>Usuário</label>
+						<input type="text" class="form-control servUser" name="" placeholder="Digite o usuário...">
+					</div>
+					<div class="form-group">
+						<label>Senha</label>
+						<input type="password" class="form-control servSenha" name="" id="servSenha" placeholder="Digite a senha...">
+					</div>
+					<div class="form-group">
+						<label>Data Instalação</label>
+						<input type="date" class="form-control servInstalacao" name="" placeholder="Digite a data...">
+					</div>
+				</div>
+				<div>
+					<div class="form-group">
+						<label>Nome</label>
+						<input type="text" class="form-control servNome" name="" placeholder="Digite o serviço...">
+					</div>
+					<div class="form-group">
+						<label>Ip</label>
+						<input type="type" class="form-control servIp" name="" placeholder="Digite o Ip...">
+					</div>
+					<div class="form-group">
+						<label>Porta</label>
+						<input type="number" class="form-control servPorta" name="" placeholder="Digite a porta...">
+					</div>
+					<div class="form-group">
+						<label>Usuário</label>
+						<input type="text" class="form-control servUser" name="" placeholder="Digite o usuário...">
+					</div>
+					<div class="form-group">
+						<label>Senha</label>
+						<input type="password" class="form-control servSenha" name="" id="servSenha" placeholder="Digite a senha...">
+					</div>
+					<div class="form-group">
+						<label>Data Instalação</label>
+						<input type="date" class="form-control servInstalacao" name="" placeholder="Digite a data...">
+					</div>
+				</div>
 			</div>
-			<div class="form-group">
-				<label>Senha:</label>
-				<input type="password" class="form-control" name="" id="senhaUser" placeholder="Digite a placa do veiculo...">
-			</div>
-			<div class="form-group">
-				<label>Data de Instalação:</label>
-				<input type="date" class="form-control" name="" id="dataUser" placeholder="Digite a placa do veiculo...">
-			</div>
+			<button type="button" id="add" class="btn btn-success">+</button>
 			<button type="submit" class="btn btn-primary">Salvar</button>
 		</form>
 	</div>
@@ -52,19 +96,32 @@
 		        <th>Nome</th>
 		        <th>IP</th>
 		        <th>Porta</th>
-		        <th>Usuário</th>
-		        <th>Senha</th>
-		        <th>Data de Instalação</th>
 		      </tr>
 		    </thead>
 		    <tbody id="resultados">
 		    </tbody>
 		 </table>
+
+		 <table class="table table-hover" >
+		    <thead>
+		      <tr>
+		        <th>Nome</th>
+		        <th>IP</th>
+		        <th>Porta</th>
+		        <th>Usuário</th>
+		        <th>Senha</th>
+		        <th>Data Instalação</th>
+		      </tr>
+		    </thead>
+		    <tbody id="consulta">
+		    </tbody>
+		 </table>
+
 		</div>
 	</div>
 </div>
- 	<script src="https://code.jquery.com/jquery-3.1.1.js" integrity="sha256-16cdPddA6VdVInumRGo6IbivbERE8p7CQR3HzTBuELA=" crossorigin="anonymous"></script>
-	<script src="js/bootstrap.min.js"></script>
-	<script src="js/main.js"></script>
+<script src="https://code.jquery.com/jquery-3.1.1.js" integrity="sha256-16cdPddA6VdVInumRGo6IbivbERE8p7CQR3HzTBuELA=" crossorigin="anonymous"></script>
+<script src="js/bootstrap.min.js"></script>
+<script src="js/main.js"></script>
 	</body>
 </html>
