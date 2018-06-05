@@ -42,7 +42,9 @@ function cadastrarServidor(e){
 	}
 
 
-	// document.getElementById('formulario').reset();
+	 document.getElementById('formulario').reset();
+	 document.getElementById('servs').innerHTML="";
+	 addServico()
 
 	mostraInfo();
 }
@@ -51,29 +53,35 @@ function addServico() {
 	var servs = document.getElementById('servs')
 
 	servs.insertAdjacentHTML('beforeend', `
-		<div>
+		<div class="pb-2 d-flex">
 			<div class="form-group">
 				<label>Nome</label>
+				</br>
 				<input type="text" class="form-control servNome" name="" placeholder="Digite o serviço...">
 			</div>
 			<div class="form-group">
 				<label>Ip</label>
+				</br>
 				<input type="type" class="form-control servIp" name="" placeholder="Digite o Ip...">
 			</div>
 			<div class="form-group">
 				<label>Porta</label>
+				</br>
 				<input type="number" class="form-control servPorta" name="" placeholder="Digite a porta...">
 			</div>
 			<div class="form-group">
 				<label>Usuário</label>
+				</br>
 				<input type="text" class="form-control servUser" name="" placeholder="Digite o usuário...">
 			</div>
 			<div class="form-group">
 				<label>Senha</label>
+				</br>
 				<input type="password" class="form-control servSenha" name="" id="servSenha" placeholder="Digite a senha...">
 			</div>
 			<div class="form-group">
 				<label>Data Instalação</label>
+				</br>
 				<input type="date" class="form-control servInstalacao" name="" placeholder="Digite a data...">
 			</div>
 		</div>
@@ -106,13 +114,15 @@ function consultaServicos(ip) {
 			for (var j = 0; j < infos.servicos.length; j++) {
 
 				servicos = infos.servicos
-
+				testar = ""
+				servicos[j].ip.length>0 ? null : testar = "disabled"
 				consulta.innerHTML += `<tr><td>${servicos[j].nome}</td>
 													<td>${servicos[j].ip}</td>
 													<td>${servicos[j].porta}</td>
 													<td>${servicos[j].usuario}</td>
 													<td>${servicos[j].senha}</td>
-													<td>${servicos[j].dataInstalacao}</td>
+													<td>${dateMask(servicos[j].dataInstalacao)}</td>
+													<td class="text-center"><button ${testar} onclick="testarServer(${servicos[j].ip})" class="btn btn-success">Testar</button></td>
 											 </tr>`
 			}
 		}
@@ -135,10 +145,26 @@ function mostraInfo(){
 		 infoResultado.innerHTML += '<tr><td>'+ nome + '</td>'+
 		 							 	  '<td>'+ ip + '</td>' +
 		 							 	  '<td>'+ porta + '</td>' +
-											'<td><button onclick="consultaServicos(\''+ ip +'\')" class="btn btn-success">Consultar</button></td>' +
-		 							 	  '<td><button onclick="removeServer(\''+ ip +'\')" class="btn btn-danger">Remover</button></td>'+
+											'<td class="text-center"><button onclick="consultaServicos(\''+ ip +'\')" class="btn btn-success">Consultar</button></td>' +
+		 							 	  '<td class="text-center"><button onclick="removeServer(\''+ ip +'\')" class="btn btn-danger">Remover</button></td>'+
 		 							 '</tr>';
 	}
+}
+
+function dateMask(d){
+	dt = d.split("-")
+	return `${dt[2]}/${dt[1]}/${dt[0]}`
+}
+
+function testarServer(ip){
+	alert = document.getElementById('alert')
+	alert.innerHTML=`Conexão no IP(${ip}) realizada com sucesso!`
+	alert.classList.remove("d-none")
+	$("#alert").alert()
+	setTimeout(
+		function(){
+			alert.classList.add("d-none")
+		}	,4000)
 }
 
 (function() {
